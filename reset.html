@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reset your password | SUQ8</title>
+<meta name="theme-color" content="#006977">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html"><img src="logo.png" alt=""><span class="wordmark">SUQ8</span></a>
+  </div>
+</header>
+
+<main>
+  <div class="card">
+    <h1>Choose a new password</h1>
+    <p id="status" class="status" role="status">Checking your link…</p>
+    <form id="form" hidden>
+      <label for="password">New password</label>
+      <input id="password" type="password" autocomplete="new-password" minlength="6" required>
+      <label for="confirm">Confirm new password</label>
+      <input id="confirm" type="password" autocomplete="new-password" minlength="6" required>
+      <button id="submit" type="submit">Save password</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <a href="index.html">suq8.com</a>
+    <span class="spacer"></span>
+    <a href="mailto:support@suq8.com">support@suq8.com</a>
+  </div>
+</footer>
+
+<script src="vendor/supabase.js"></script>
+<script src="config.js"></script>
+<script src="reset.js"></script>
+</body>
+</html>

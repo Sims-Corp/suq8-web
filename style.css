@@ -1,0 +1,177 @@
+/* Colours and fonts match the app (lib/core/utils/theme/theme_constants.dart, fonts/). */
+@font-face {
+  font-family: "Lora";
+  src: url("fonts/Lora-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("fonts/Montserrat-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("fonts/Montserrat-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-display: swap;
+}
+
+:root {
+  --primary: #006977;       /* COLOR_PRIMARY */
+  --primary-dark: #002c32;  /* GREEN_90 */
+  --primary-deep: #001d21;  /* GREEN_100 */
+  --primary-soft: #d4e3e5;  /* GREEN_10 */
+  --accent: #ffbf1f;        /* COLOR_ACCENT */
+  --accent-soft: #fff4da;   /* YELLOW_10 */
+  --accent-light: #ffd46a;  /* YELLOW_40 */
+  --ink: #142325;           /* WARM_NEUTRAL_100 */
+  --muted: #485455;         /* WARM_NEUTRAL_80 */
+  --line: #cbcece;          /* WARM_NEUTRAL_30 */
+  --bg: #f3f6f6;
+  --card: #ffffff;
+  --error: #cc3434;         /* CAT_RED */
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 17px/1.65 "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+h1, h2, h3, .wordmark {
+  font-family: "Lora", Georgia, serif;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+/* Top bar */
+.topbar { background: var(--primary); }
+.topbar-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.topbar a { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.topbar img { height: 40px; width: auto; display: block; }
+.wordmark { font-size: 26px; letter-spacing: 1px; color: #fff; }
+
+main { flex: 1; width: 100%; max-width: 880px; margin: 0 auto; padding: 40px 20px 64px; }
+
+/* Hero */
+.hero {
+  background: var(--primary-soft);
+  border-radius: 20px;
+  padding: 40px 32px;
+  margin-bottom: 32px;
+}
+.hero h1 { font-size: 40px; line-height: 1.15; margin: 0 0 16px; }
+.hero h1::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 5px;
+  margin-top: 16px;
+  border-radius: 3px;
+  background: var(--accent);
+}
+.hero p { margin: 0; font-size: 19px; color: var(--ink); }
+
+h1 { font-size: 34px; line-height: 1.2; margin: 0 0 12px; }
+h2 { font-size: 24px; margin: 36px 0 10px; }
+p, li { color: var(--muted); }
+p { margin: 0 0 14px; }
+a { color: var(--primary); }
+
+/* Cards */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 28px;
+  margin: 24px 0;
+}
+.card.notice {
+  background: var(--accent-soft);
+  border: 2px solid var(--accent);
+}
+.card h1, .card h2:first-child { margin-top: 0; }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 8px 0 0;
+}
+.grid .card { margin: 0; padding: 22px; }
+.grid h3 { font-size: 19px; margin: 0 0 6px; }
+.grid p { margin: 0; font-size: 16px; }
+
+/* Forms and buttons */
+label { display: block; font-weight: 600; margin: 18px 0 6px; color: var(--ink); }
+
+input {
+  width: 100%;
+  padding: 12px 14px;
+  font: inherit;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+}
+
+button, .button {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 13px 26px;
+  font: 600 17px/1 "Montserrat", system-ui, sans-serif;
+  color: #fff;
+  background: var(--primary);
+  border: 0;
+  border-radius: 10px;
+  text-decoration: none;
+  cursor: pointer;
+}
+button:hover, .button:hover { background: #005864; }
+button:disabled { opacity: 0.55; cursor: default; }
+
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.status { margin-top: 16px; font-weight: 600; }
+.status.error { color: var(--error); }
+.status.ok { color: var(--primary); }
+
+/* Footer */
+footer { background: var(--primary-dark); color: var(--primary-soft); }
+.footer-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 24px 20px;
+  font-size: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  align-items: center;
+}
+footer a { color: var(--accent-light); }
+footer .spacer { flex: 1; }
+
+@media (max-width: 600px) {
+  .hero { padding: 28px 22px; }
+  .hero h1 { font-size: 32px; }
+  .grid { grid-template-columns: 1fr; }
+  .wordmark { font-size: 24px; }
+}
